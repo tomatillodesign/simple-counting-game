@@ -152,8 +152,6 @@ var takeTurn = function() {
                     console.log('GAME OVER');
                     gameOver();
 
-                    window.location.reload(true);
-
                }
 
           }
