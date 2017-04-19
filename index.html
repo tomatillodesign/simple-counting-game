@@ -13,13 +13,27 @@
 
        <div class="content">
 
-        <p>Let's play counting.</p>
+        <p>Let's play counting. If your total is above 100, you win your bet! If it's less than 100, you'll lose.</p>
+
+        <div class="bet-area">
+
+               <div id="cash">Your Cash: $</div>
+
+            <form action="" method="get" id="the-bet" name="the-bet">
+                 <label for="betAmount">How much to bet? ($10 min, $500 max)</label><br/>
+                 <input type="number" id="bet-amount" name="betAmount" value="" step="10" min="10" max="500" tabindex="1" autofocus="true" autocomplete="name" draggable="true" />
+                     <br/>
+                 <input type="submit" name="submit" value="Submit Bet" tabindex="2">
+            </form>
+        </div>
 
         <div id="buttons">
 
              <a href="#" id="play-now-button" class="button">Play Now</a>
 
-             <a href="#" id="play-now-button" class="button">Cash Out</a>
+             <a href="#" id="cash-out-button" class="button">Cash Out</a>
+
+             <a href="#" id="next-round-button" class="button">Next Round</a>
 
         </div>
 
