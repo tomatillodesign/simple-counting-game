@@ -1,131 +1,52 @@
 /********************************
- * Getting and Setting Attribute Node Values
- * 1.3.6
+ * Simple Counting Game
  *
  *******************************/
 
+var pointArray = [];
 
-// console.log( 'Hello, world!' );
+//Random Number
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
+var playHand = function() {
 
-/********************************
- * Getting Attribute Nodes
- * 1.3.6.1
- *
- *******************************/
+     var randomNumber = getRandomInt(0,100);
+     pointArray.push( randomNumber );
+     return randomNumber;
 
-
-// var a = document.querySelector( 'a' ),
-//     atts = a.attributes;
-//
-// console.log( atts );
-//
-//
-// for( var i = 0, max = atts.length; i < max; i++ ) {
-//
-//    console.log( atts[i].nodeName +
-//                 ': ' +
-//                 atts[i].nodeValue );
-//
-// }
+}
 
 
+// Custom Function to get Point Totals out of array
+var pointTotal = 0;
+function addPoints( pointArray ) {
 
+     pointTotal = 0;
 
+     for(i = 0; i < pointArray.length; i++) {
+          pointTotal += pointArray[i].value;
+     }
 
-
-
-
-
-/********************************
- * Get a specific Attribute
- * 1.3.6.2
- *
- *******************************/
-
-
-// var a = document.querySelector( 'a' ),
-//     aTitle = a.getAttribute( 'title' ),
-//     aHref = a.getAttribute( 'href' );
-//
-// console.log( aTitle );
-// console.log( aHref );
+     return pointTotal;
+}
 
 
 
+var playNowButton = document.getElementById("play-now-button");
+playNowButton.addEventListener( 'click', playNow, false );
 
+function playNow( event ) {
+     event.preventDefault();
 
+     var points = playHand();
 
+     console.log('Your Points: ' + points);
+     document.getElementById("game-action").innerHTML += points + '<br/>';
 
-/********************************
- * Set an Attribute
- * 1.3.6.3
- *
- *******************************/
+     
 
-
-var a = document.querySelector( 'a' );
-
-
-a.setAttribute( 'href' , 'https://twitter.com/jsforwp' );
-a.setAttribute( 'id', 'twitter' )
-
-console.log( a.getAttribute( 'href' ) );
-console.log( a.getAttribute( 'id' ) );
-
-
-
-
-
-
-
-
-
-
-
-/********************************
- * Working with Classes
- * 1.3.6.4
- *
- *******************************/
-
-// 
-// var content = document.querySelector( '.content' );
-//
-//
-// console.log( content.getAttribute( 'class' ) );
-// console.log( content.className );
-// console.log( content.classList );
-//
-// // content.classList.add( 'active' );
-// // content.classList.remove( 'active' );
-// content.classList.toggle( 'active' );
-
-// console.log( content.classList );
-
-
-
-/********************************
- * Data Attributes
- * 1.3.6.5
- *
- *******************************/
-
-
-// var contact = document.getElementById( 'contact' );
-
-
-// console.log( contact.getAttribute( 'data-time' ) );
-
-// console.log( contact.dataset );
-
-// console.log( contact.dataset.location );
-
-// contact.dataset.location = 'Asheville';
-// console.log( contact.dataset.location );
-//
-//
-//
-//
-//
-// End 1.3.6
+}
